@@ -1,0 +1,45 @@
+/* datetime-dark.css */
+
+/* General styles for the datetime picker */
+.rdt {
+  color: #fff; /* Text color */
+}
+
+.rdtPicker {
+  z-index: 9999; /* Ensure it appears above other elements */
+  position: absolute; /* Make sure it's positioned correctly */
+  background-color: #1f2937; /* Dark background */
+  border: 1px solid #4b5563; /* Border color */
+  color: #fff; /* Text color */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Box shadow for a nice effect */
+}
+
+/* Custom styles for various elements inside the picker */
+.rdtPicker .rdtTimeToggle, 
+.rdtPicker .rdtSwitch,
+.rdtPicker .rdtNext, 
+.rdtPicker .rdtPrev {
+  color: #fff; /* Icon/text color */
+}
+
+.rdtPicker td.rdtActive,
+.rdtPicker td.rdtActive:hover {
+  background-color: #2563eb; /* Blue color for active state */
+  color: #fff; /* White text on hover */
+}
+
+.rdtPicker td:hover {
+  background-color: #374151; /* Slight grayish hover effect */
+  color: #fff; /* White text */
+}
+
+/* Style for the time section (divider) */
+.rdtPicker .rdtTime {
+  border-top: 1px solid #4b5563; /* Light gray border */
+}
+
+/* Styles for the select elements (used for time) */
+.rdtPicker select {
+  background-color: #1f2937; /* Dark background */
+  color: #fff; /* White text */
+}
