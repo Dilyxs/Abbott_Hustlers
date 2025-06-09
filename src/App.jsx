@@ -12,6 +12,7 @@ import ClientDetails from './components/ClientView/ClientDetails';
 import FullCaendar from './components/Calendar/FullCaendar';
 import Notes from './pages/Notes';
 import Finances from './pages/Finances';
+import Gallery from './pages/Gallery';
 
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
       <Route path="/test" element={<FullCaendar></FullCaendar>}></Route>
       <Route path="/notes" element={<Notes></Notes>}></Route>
       <Route path='/finance' element={<Finances></Finances>}></Route>
+      <Route path='/gallery' element={<Gallery></Gallery>}></Route>
 
 
       </Routes>

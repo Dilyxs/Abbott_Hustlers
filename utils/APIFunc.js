@@ -296,3 +296,23 @@ export const ChangeHasBeenTakenFinanceDetails = async (ids) => {
     throw error;
   }
 };
+
+export const UploadImageToDB = async (url , title, description)=>{
+  try {
+    const response = await axios.post(`${base_url}/insertimage`,{url:url,title:title,description:description})
+    return response.status
+    
+  } catch (error) {
+    throw error;
+  }
+}
+
+export const FetchAllImageData = async()=>{
+  try {
+    const response = await axios.get(`${base_url}/ImageData`)
+    return response.data
+  } catch (error) {
+    throw error;
+    
+  }
+}
