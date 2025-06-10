@@ -5,7 +5,7 @@ const Button = ({text, className, id}) => {
     <a 
     onClick={(e)=>{
       e.preventDefault();
-      window.location.href=window.location.href + '/gallery';
+      window.location.href=window.location.href + 'gallery';
     }}
     
     className={`${className ?? ""} cta-wrapper`} >
