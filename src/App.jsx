@@ -13,6 +13,7 @@ import FullCaendar from './components/Calendar/FullCaendar';
 import Notes from './pages/Notes';
 import Finances from './pages/Finances';
 import Gallery from './pages/Gallery';
+import AuthPath from './pages/AuthPath';
 
 
 function App() {
@@ -33,7 +34,7 @@ function App() {
       <Route path='/search/:clientid' element={<ClientDetails></ClientDetails>}></Route>
       <Route path="/test" element={<FullCaendar></FullCaendar>}></Route>
       <Route path="/notes" element={<Notes></Notes>}></Route>
-      <Route path='/finance' element={<Finances></Finances>}></Route>
+      <Route path='/finance' element={<AuthPath><Finances></Finances></AuthPath>}></Route>
       <Route path='/gallery' element={<Gallery></Gallery>}></Route>
 
 

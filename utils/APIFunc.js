@@ -70,6 +70,7 @@ export const RegisterUser = async (email , password)=>{
     return "error, Email already used"
   }
 }
+ 
 
 export const LoginUser = async (email, password) => {
   try {
@@ -80,7 +81,7 @@ export const LoginUser = async (email, password) => {
     );
 
     if (response.status === 200) {
-      return "ok"; 
+      return ["ok",response.data]; //you need call a helper function that uhh makes the token -> inserttoken return token that was generated
     } else {
       return "error, Unexpected server response";
     }

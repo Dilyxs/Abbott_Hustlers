@@ -26,10 +26,11 @@ const Login = ({location}) => {
   const HandleSubmitForm = async (e) => {
     e.preventDefault();
   
-    const response = await LoginUser(LoginInfo.email, LoginInfo.password); // await here
+    const [response,data] = await LoginUser(LoginInfo.email, LoginInfo.password); // await here
   
     if (response === "ok") {
       console.log(location)
+      console.log(data['id'])
 
       if (location != null){setTimeout(()=>{  Navigate(location);},200)};
 
