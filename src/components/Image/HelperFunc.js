@@ -1,5 +1,7 @@
 import axios from "axios";
 import { FetchAllImageData, UploadImageToDB } from "../../../utils/APIFunc";
+import imageCompression from 'browser-image-compression';
+
 
 export const HandleChange = (e,SetFormData)=>{
     e.preventDefault();
@@ -32,8 +34,10 @@ export const HandleSubmitFormData = async (e,FormData,setFormData,setAddImage,Ad
 
 
 export const HandleFileDownload = async (file)=>{
+    var WebFile = await convertToWebP(file)
+    var ReducedFile = await LowerFileSize(WebFile)
     const data = new FormData();
-    data.append('file', file);
+    data.append('file', ReducedFile);
     data.append('upload_preset', 'React_Upload');//I assume React_Upload is the only requirement I need to input???
 
 try {
@@ -54,3 +58,48 @@ export const LoadAllImages = async()=>{
         
     }
 }
+
+export const LowerFileSize = async (file)=>{
+    var ReducedFile = await imageCompression(file,{maxSizeMB:0.5, maxWidthOrHeight:720});
+    return ReducedFile
+}
+
+
+export const convertToWebP = (file, quality = 0.8) => {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    const reader = new FileReader();
+
+    reader.onload = () => {
+      img.src = reader.result;
+    };
+
+    img.onload = () => {
+      const canvas = document.createElement("canvas");
+      canvas.width = img.width;
+      canvas.height = img.height;
+
+      const ctx = canvas.getContext("2d");
+      ctx.drawImage(img, 0, 0);
+
+      canvas.toBlob(
+        (blob) => {
+          if (blob) {
+            const webpFile = new File([blob], file.name.replace(/\.\w+$/, ".webp"), {
+              type: "image/webp",
+              lastModified: Date.now(),
+            });
+            resolve(webpFile);
+          } else {
+            reject("Conversion to WebP failed.");
+          }
+        },
+        "image/webp",
+        quality // 0.0 - 1.0
+      );
+    };
+
+    reader.onerror = reject;
+    reader.readAsDataURL(file);
+  });
+};

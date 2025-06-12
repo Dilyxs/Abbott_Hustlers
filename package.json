@@ -23,6 +23,7 @@
     "@react-three/postprocessing": "^3.0.4",
     "@tailwindcss/vite": "^4.1.4",
     "axios": "^1.8.4",
+    "browser-image-compression": "^2.0.2",
     "gsap": "^3.12.7",
     "lucide-react": "^0.511.0",
     "moment": "^2.30.1",
