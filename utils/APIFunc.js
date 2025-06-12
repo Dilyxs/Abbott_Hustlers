@@ -317,3 +317,16 @@ export const FetchAllImageData = async()=>{
     
   }
 }
+
+export const TokenMaker = async(id)=>{
+  try {
+    const response = await axios.post(`${base_url}/InsertToken`, {"id":id})
+    return response.data //this is important this gives us the verification token
+    
+  } catch (error) {
+    console.log(error)
+    throw error
+    
+  }
+
+}
