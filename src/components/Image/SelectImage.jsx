@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { X } from 'lucide-react' // optional icon, or just use "×"
 import {HandleChange, HandleSubmitFormData, LoadAllImages} from './HelperFunc'
+import { label } from 'three/tsl';
 
 const SelectImage = ({ setAddImage,AddImage,setImages }) => {
+    const [Loading , setLoading ] = useState(false);
         const data = JSON.parse(localStorage.getItem("FormData"))
         const [FormData, setFormData] = useState(data || {"image":"","title":"","description":""})
         
@@ -77,18 +79,26 @@ const SelectImage = ({ setAddImage,AddImage,setImages }) => {
           />
         </div>
 
-        <button
+
+        {Loading ? (<label className="w-full py-2 px-4 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition">Currently Uploading</label>):
+         <button
           type="button"
           className="w-full py-2 px-4 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition"
-          onClick={async(e)=>{ await HandleSubmitFormData(e,FormData,setFormData,setAddImage,AddImage);
+          onClick={async(e)=>{ 
+            setLoading(true)
+            await HandleSubmitFormData(e,FormData,setFormData,setAddImage,AddImage);
             var data = await LoadAllImages();
             setImages(data)
+            setLoading(false)
             
             
           }}
-        >
-          Submit
-        </button>
+        >Submit
+        </button>}
+
+       
+
+
       </div>
     </div>
   )

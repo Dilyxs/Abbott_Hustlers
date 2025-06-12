@@ -13,8 +13,13 @@ const Gallery = () => {
         setImages(data);
     }
     quicky();
+    const FetchData = setInterval(quicky, 3000)
+
+    return ()=>{clearInterval(FetchData)}
 
   }, [])
+
+  
 
  return (
   <div className="min-h-screen bg-gray-100 px-4 py-6 sm:px-6 lg:px-8">
