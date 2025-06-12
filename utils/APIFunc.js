@@ -81,7 +81,7 @@ export const LoginUser = async (email, password) => {
     );
 
     if (response.status === 200) {
-      return ["ok",response.data]; //you need call a helper function that uhh makes the token -> inserttoken return token that was generated
+      return ["ok",response.data];  //you need call a helper function that uhh makes the token -> inserttoken return token that was generated, response.data gives userid 3 for example!
     } else {
       return "error, Unexpected server response";
     }
