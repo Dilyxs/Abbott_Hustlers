@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react'
-import { LoginUser } from '../../utils/APIFunc';
+import { LoginUser, TokenMaker } from '../../utils/APIFunc';
 import { useNavigate } from 'react-router-dom';
 
 const Login = ({location}) => {
@@ -31,6 +31,8 @@ const Login = ({location}) => {
     if (response === "ok") {
       console.log(location)
       console.log(data['id'])
+      const responseToken = await TokenMaker(data['id'])
+      localStorage.setItem("Token", JSON.stringify(responseToken))
 
       if (location != null){setTimeout(()=>{  Navigate(location);},200)};
 
@@ -44,7 +46,6 @@ const Login = ({location}) => {
 
   return (
     <div>
-      <p>Location is {location}</p>
     <section className="flex w-full justify-center items-center min-h-screen">
       <form
         className="shadow-lg rounded-2xl p-8 w-full max-w-xl space-y-6"
