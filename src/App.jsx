@@ -23,24 +23,21 @@ function App() {
   return (
     <Router>
       <Routes>
-      <Route path="/" element = {<Main_Page/>}></Route>
-      <Route path='/addclient' element = {<AddClient/>}></Route>
-      <Route path='/login' element = {<Login location={location}></Login>}></Route>
-      <Route path="*" element={<Navigate to="/" replace />}/>
-      <Route path='/dashBoard' element={<DashBoard/>}> </Route>
-      <Route path='/register' element={<Register/>}></Route>
-      <Route path='/calendar' element={<CalendarElement></CalendarElement>}></Route>
-      <Route path='/search' element={<SearchQuery></SearchQuery>}></Route>
-      <Route path='/search/:clientid' element={<ClientDetails></ClientDetails>}></Route>
-      <Route path="/test" element={<FullCaendar></FullCaendar>}></Route>
-      <Route path="/notes" element={<Notes></Notes>}></Route>
-      <Route path='/finance' element={<AuthPath><Finances></Finances></AuthPath>}></Route>
-      <Route path='/gallery' element={<Gallery></Gallery>}></Route>
-
-
+        <Route path="/" element={<Main_Page />} />
+        <Route path='/addclient' element={<AuthPath><AddClient /></AuthPath>} />
+        <Route path='/login' element={<Login location={location} />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
+        <Route path='/dashBoard' element={<AuthPath><DashBoard /></AuthPath>} />
+        <Route path='/register' element={<Register />} />
+        <Route path='/calendar' element={<AuthPath><CalendarElement /></AuthPath>} />
+        <Route path='/search' element={<AuthPath><SearchQuery /></AuthPath>} />
+        <Route path='/search/:clientid' element={<AuthPath><ClientDetails /></AuthPath>} />
+        <Route path="/test" element={<AuthPath><FullCaendar /></AuthPath>} />
+        <Route path="/notes" element={<AuthPath><Notes /></AuthPath>} />
+        <Route path='/finance' element={<AuthPath><Finances /></AuthPath>} />
+        <Route path='/gallery' element={<Gallery />} />
       </Routes>
     </Router>
-
   )
 }
 

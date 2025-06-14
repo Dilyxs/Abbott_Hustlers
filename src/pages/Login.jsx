@@ -36,7 +36,7 @@ const Login = ({location}) => {
 
       if (location != null){setTimeout(()=>{  Navigate(location);},200)};
 
-       setTimeout(()=>{setTimeout(()=>{Navigate('/addclient')})}, 200)
+       setTimeout(()=>{setTimeout(()=>{Navigate('/search')})}, 200)
 
     } else {
       setLoginInfo({ email: "", password: "" });

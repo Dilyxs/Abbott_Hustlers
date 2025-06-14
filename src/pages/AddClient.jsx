@@ -21,7 +21,7 @@ const AddClient = () => {
             signed: false, 
             signedprice: "",
             workdate: '',
-            leaduser: 3
+            leaduser:String(JSON.parse(localStorage.getItem("Token"))['userid'])
           };
     });
 
@@ -51,7 +51,7 @@ const AddClient = () => {
       bookingdate: ClientInfo.bookingdate || "1970-01-01",
       callweek: ClientInfo.callweek || "1970-01-01",
       workdate: ClientInfo.workdate || "1970-01-01",
-      leaduser:3,
+      leaduser:Number(JSON.parse(localStorage.getItem("Token"))['userid'])
     };
 
     const quicky = async()=>{
@@ -73,7 +73,7 @@ const AddClient = () => {
       signed: false,
       signedprice: "",
       workdate: '',
-      leaduser: 3
+      leaduser: Number(JSON.parse(localStorage.getItem("Token"))['userid'])
       });
       console.log(correctedClientInfo); 
       } catch (error) {
@@ -101,10 +101,12 @@ const AddClient = () => {
       signed: false,
       signedprice: "",
       workdate: '',
-      leaduser: 3
+      leaduser:JSON.parse(localStorage.getItem("Token"))['userid']
       });
 
   }
+  {console.log(ClientInfo)}
+  {console.log(JSON.parse(localStorage.getItem("Token"))['userid'])}
 
   return (
     <div className="max-w-2xl mx-auto p-6  rounded-lg shadow-md">

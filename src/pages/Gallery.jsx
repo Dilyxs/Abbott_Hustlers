@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import SelectImage from '../components/Image/SelectImage'
-import { LoadAllImages } from '../components/Image/HelperFunc';
+import { authFlow, LoadAllImages } from '../components/Image/HelperFunc';
 import AllIages from '../components/Image/AllIages';
 
 const Gallery = () => {
   const [AddImage, setAddImage] = useState(false)
   const [Images , setImages ] = useState([]);
+  const [UserAuthenticated , setUserAuthenticated ] = useState(false)
 
   useEffect(() => {
     const quicky = async()=>{
@@ -14,6 +15,7 @@ const Gallery = () => {
     }
     quicky();
     const FetchData = setInterval(quicky, 3000)
+    setUserAuthenticated(authFlow())
 
     return ()=>{clearInterval(FetchData)}
 
@@ -35,8 +37,9 @@ const Gallery = () => {
       >
         Return To Main Page
       </button>
-
-      <button
+      
+      {UserAuthenticated &&  (
+         <button
         onClick={() => {
           setAddImage(!AddImage);
           console.log("btn clicked");
@@ -45,6 +48,10 @@ const Gallery = () => {
       >
         Add An Image
       </button>
+
+
+      )}
+     
     </div>
 
     {AddImage && (

@@ -103,3 +103,13 @@ export const convertToWebP = (file, quality = 0.8) => {
     reader.readAsDataURL(file);
   });
 };
+
+
+
+export const authFlow = () => {
+      const stored = JSON.parse(localStorage.getItem('Token')) || null;
+      if (stored){
+        return true
+      }else{
+        return false
+      }}
