@@ -38,7 +38,7 @@ const ShowCase = () => {
           {/* Left side */}
           <div className="first-project-wrapper" ref={Project1}>
             <div className="image-wrapper">
-              <img src="/images/deck_painting.jpg" alt="" />
+              <img src="/images/Dragon.webp" alt="" />
             </div>
             <div className="text-content">
               <h2>Painting Work Done during the Summer With Prestige Quality</h2>
@@ -51,7 +51,7 @@ const ShowCase = () => {
           <div className="project-list-wrapper overflow-hidden">
             <div className="project" ref={Project2}>
               <div className="image-wrapper">
-                <img src="/images/gutter_cleaning.jpeg" alt="" />
+                <img src="/images/Gutters.png" alt="" />
               </div>
               <h2>
                 Gutter Cleaning done to YOUR house. Expect no blockage for a very long time
@@ -59,7 +59,7 @@ const ShowCase = () => {
             </div>
             <div className="project" ref={Project3}>
               <div className="image-wrapper">
-                <img src="/images/window_cleaning.jpg" alt="" />
+                <img src="/images/Washing.png" alt="" />
               </div>
               <h2>Dusty Windows? No more...</h2>
             </div>
