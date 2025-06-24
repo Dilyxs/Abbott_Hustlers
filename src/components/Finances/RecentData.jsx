@@ -14,6 +14,7 @@ const RecentData = ({ RecentDatas, setAllFinanceDetails, setRecentDatas }) => {
   const [Transactions, setTransactions] = useState(null);
 
   const onAdd = (data) => {
+    console.log(SelectedData)
     if (!SelectedData.includes(data)) {
       setSelectedData((prev) => [...prev, data]);
     } else {
