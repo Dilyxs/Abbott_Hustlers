@@ -340,3 +340,13 @@ export const TokenVerifier = async(userid, verificationtoken)=>{
     throw error
   }
 }
+
+export const FetchColorData = async(typeData, color, opacity)=> {
+  try {
+    const response = await axios.post(`${base_url}/selectcolorpicker`,{'type':typeData, 'color':color, 'opacity':opacity})
+    return response
+  } catch (error) {
+    console.log(error)
+    
+  }
+}

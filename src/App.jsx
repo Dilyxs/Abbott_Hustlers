@@ -14,6 +14,7 @@ import Notes from './pages/Notes';
 import Finances from './pages/Finances';
 import Gallery from './pages/Gallery';
 import AuthPath from './pages/AuthPath';
+import ColorPicker from './pages/ColorPicker';
 
 
 function App() {
@@ -36,6 +37,8 @@ function App() {
         <Route path="/notes" element={<AuthPath><Notes /></AuthPath>} />
         <Route path='/finance' element={<AuthPath><Finances /></AuthPath>} />
         <Route path='/gallery' element={<Gallery />} />
+        <Route path='/ColorPicker' element={<AuthPath><ColorPicker /> </AuthPath>} />
+
       </Routes>
     </Router>
   )
