@@ -1,1 +1,3 @@
-file for Abbott Hustlers S.E.N.C
+frontend for Abbott Hustlers S.E.N.C
+This repository contains the frontend code for the Abbott Hustlers website, developed using modern web technologies. The project aims to provide a user-friendly interface for the gutter business,painting business, facilitating easy navigation and interaction for users, mainly for marketers and business owners to coordinate with others.
+
